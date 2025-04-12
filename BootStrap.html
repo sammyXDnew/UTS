@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Responsif</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="50" tabindex="0">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Profil Saya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kisahku">Kisahku</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pendidikan">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tugas">Tugas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Beranda -->
+    <section id="beranda" class="pt-5 mt-5">
+        <div class="jumbotron text-center bg-light py-5">
+            <img src="https://via.placeholder.com/150" class="rounded-circle mb-3" alt="Foto Profil">
+            <h1 class="display-4">Nama Lengkap</h1>
+            <p class="lead">NIM: 123456789</p>
+        </div>
+    </section>
+
+    <!-- Tentang -->
+    <section id="tentang" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Tentang</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
+                </div>
+                <div class="col-md-6">
+                    <p>Curabitur venenatis, nisl in bibendum commodo, sapien justo cursus urna, eget bibendum lorem arcu ut velit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kisahku -->
+    <section id="kisahku" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Kisahku</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 1">
+                        <div class="card-body">
+                            <p class="card-text">Foto bersama keluarga.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 2">
+                        <div class="card-body">
+                            <p class="card-text">Foto bersama teman-teman.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Foto 3">
+                        <div class="card-body">
+                            <p class="card-text">Foto saat liburan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section id="pendidikan" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Pendidikan</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tahun</th>
+                        <th>Nama Sekolah</th>
+                        <th>Alamat Sekolah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2010 - 2016</td>
+                        <td>SD Negeri 1</td>
+                        <td>Jl. Contoh Alamat</td>
+                    </tr>
+                    <tr>
+                        <td>2016 - 2019</td>
+                        <td>SMP Negeri 1</td>
+                        <td>Jl. Contoh Alamat</td>
+                    </tr>
+                    <tr>
+                        <td>2019 - 2022</td>
+                        <td>SMA Negeri 1</td>
+                        <td>Jl. Contoh Alamat</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tugas -->
+    <section id="tugas" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Tugas</h2>
+            <p class="text-center">Berikut adalah daftar tugas yang telah saya kerjakan:</p>
+            <ul class="list-group">
+                <li class="list-group-item">Tugas 1: Membuat halaman HTML sederhana</li>
+                <li class="list-group-item">Tugas 2: Menggunakan Bootstrap untuk desain responsif</li>
+                <li class="list-group-item">Tugas 3: Membuat navigasi dengan Scrollspy</li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
