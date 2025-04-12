@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tugas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="BootStrap.html">Profil Saya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="BootStrap.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="kisahku.html">Kisahku</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pendidikan.html">Pendidikan</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Tugas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tugas Section -->
+    <section class="py-5 bg-light mt-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Tugas</h2>
+            <form id="hobiForm">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">Nama Depan</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Nama Belakang</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hobiCount" class="form-label">Jumlah Pilihan Hobi</label>
+                    <input type="number" class="form-control" id="hobiCount" min="1" required>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="generateHobiInputs()">Oke</button>
+            </form>
+
+            <div id="hobiInputs" class="mt-4"></div>
+            <div id="hobiCheckboxes" class="mt-4"></div>
+            <div id="result" class="mt-4"></div>
+        </div>
+    </section>
+
+    <script>
+        function generateHobiInputs() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const hobiCount = parseInt(document.getElementById('hobiCount').value);
+
+            if (!firstName || !lastName || !email || !hobiCount || hobiCount < 1) {
+                alert('Semua input harus diisi dengan benar!');
+                return;
+            }
+
+            const hobiInputsDiv = document.getElementById('hobiInputs');
+            hobiInputsDiv.innerHTML = '';
+
+            for (let i = 1; i <= hobiCount; i++) {
+                hobiInputsDiv.innerHTML += `
+                    <div class="mb-3">
+                        <label for="hobi${i}" class="form-label">Hobi ${i}</label>
+                        <input type="text" class="form-control" id="hobi${i}" required>
+                    </div>
+                `;
+            }
+
+            hobiInputsDiv.innerHTML += `
+                <button type="button" class="btn btn-primary" onclick="generateHobiCheckboxes(${hobiCount})">Oke</button>
+            `;
+        }
+
+        function generateHobiCheckboxes(hobiCount) {
+            const hobiInputs = [];
+            for (let i = 1; i <= hobiCount; i++) {
+                const hobiValue = document.getElementById(`hobi${i}`).value.trim();
+                if (!hobiValue) {
+                    alert('Semua input hobi harus diisi!');
+                    return;
+                }
+                hobiInputs.push(hobiValue);
+            }
+
+            const hobiCheckboxesDiv = document.getElementById('hobiCheckboxes');
+            hobiCheckboxesDiv.innerHTML = '';
+
+            hobiInputs.forEach((hobi, index) => {
+                hobiCheckboxesDiv.innerHTML += `
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="${hobi}" id="checkboxHobi${index + 1}">
+                        <label class="form-check-label" for="checkboxHobi${index + 1}">${hobi}</label>
+                    </div>
+                `;
+            });
+
+            hobiCheckboxesDiv.innerHTML += `
+                <button type="button" class="btn btn-primary mt-3" onclick="showResult(${hobiCount})">Oke</button>
+            `;
+        }
+
+        function showResult(hobiCount) {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const selectedHobi = [];
+
+            for (let i = 1; i <= hobiCount; i++) {
+                const checkbox = document.getElementById(`checkboxHobi${i}`);
+                if (checkbox && checkbox.checked) {
+                    selectedHobi.push(checkbox.value);
+                }
+            }
+
+            if (selectedHobi.length === 0) {
+                alert('Pilih setidaknya satu hobi!');
+                return;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <p>Hallo, nama saya ${firstName} ${lastName}, dengan email ${email}, saya mempunyai sejumlah ${hobiCount} pilihan hobi yaitu ${selectedHobi.join(', ')}, dan saya menyukai ${selectedHobi.join(', ')}.</p>
+            `;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
