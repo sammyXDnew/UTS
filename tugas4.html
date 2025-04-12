@@ -69,7 +69,19 @@
             const email = document.getElementById('email');
             const hobiCount = document.getElementById('hobiCount');
 
-            if (!firstName.value.trim() || !lastName.value.trim() || !email.value.trim() || !hobiCount.value || hobiCount.value < 1) {
+            const nameRegex = /^[a-zA-Z\s]+$/;
+
+            if (!firstName.value.trim() || !nameRegex.test(firstName.value)) {
+                alert('Nama Depan harus diisi dengan huruf saja!');
+                return;
+            }
+
+            if (!lastName.value.trim() || !nameRegex.test(lastName.value)) {
+                alert('Nama Belakang harus diisi dengan huruf saja!');
+                return;
+            }
+
+            if (!email.value.trim() || !hobiCount.value || hobiCount.value < 1) {
                 alert('Semua input harus diisi dengan benar!');
                 return;
             }
@@ -135,6 +147,15 @@
             const lastName = document.getElementById('lastName').value.trim();
             const email = document.getElementById('email').value.trim();
             const selectedHobi = [];
+            const inputHobi = [];
+            for (let i = 1; i <= hobiCount; i++) {
+                const hobiValue = document.getElementById(`hobi${i}`).value.trim();
+                if (!hobiValue) {
+                    alert('Semua input hobi harus diisi!');
+                    return;
+                }
+                inputHobi.push(hobiValue);
+            }
 
             for (let i = 1; i <= hobiCount; i++) {
                 const checkbox = document.getElementById(`checkboxHobi${i}`);
@@ -150,7 +171,7 @@
 
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `
-                <p>Hallo, nama saya ${firstName} ${lastName}, dengan email ${email}, saya mempunyai sejumlah ${hobiCount} pilihan hobi yaitu ${selectedHobi.join(', ')}, dan saya menyukai ${selectedHobi.join(', ')}.</p>
+                <p>Hallo, nama saya ${firstName} ${lastName}, dengan email ${email}, saya mempunyai sejumlah ${hobiCount} pilihan hobi yaitu ${inputHobi.join(', ')}, dan saya menyukai ${selectedHobi.join(', ')}.</p>
             `;
         }
     </script>
